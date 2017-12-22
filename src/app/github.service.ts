@@ -12,7 +12,7 @@ export class GithubService {
   private _currentLogin: string;
   private _currentRepoUrl: string;
   private _currentProfil: Observable<Profil>;
-  private _currentRepo: Observable<Repos>;
+  private _currentRepo: Observable<Repos[]>;
 
   constructor(private http: HttpClient) { }
 
@@ -21,14 +21,14 @@ export class GithubService {
   }
 
   private getUserRepository (url: string): void {
-    this._currentRepo = this.http.get<Repos>(url);
+    this._currentRepo = this.http.get<Repos[]>(url);
   }
 
   get currentProfil(): Observable<Profil> {
     return this._currentProfil;
   }
 
-  get currentRepo(): Observable<Repos> {
+  get currentRepo(): Observable<Repos[]> {
     return this._currentRepo;
   }
 

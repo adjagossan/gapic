@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { GithubService } from '../github.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+
+import { Profil } from '../profil';
+import { Repos } from '../repos';
 
 @Component({
   selector: 'app-search-user',
@@ -8,6 +12,10 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./search-user.component.css']
 })
 export class SearchUserComponent implements OnInit {
+
+  private profil: Profil;
+  private repos: Observable<Repos[]>
+  private repoUrl: string;
 
   constructor(private githubService: GithubService) { }
 
@@ -17,19 +25,13 @@ export class SearchUserComponent implements OnInit {
   getProfil(login: string) {
 
       this.githubService.currentLogin = login;
-      this.githubService.currentProfil
-      .subscribe(
-        data => {
-          console.log(data);
-        },
-        (err: HttpErrorResponse) => {
-          if (err.error instanceof Error) {
-            console.log('An error occured: ',err.error.message);
-          } else {
-            console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
-          }
-        }
-      );
+
+      this.githubService.currentProfil.subscribe(pf => {
+        this.profil = pf;
+        this.githubService.currentRepoUrl = this.profil["repos_url"];
+        this.repos = this.githubService.currentRepo;
+      });
+
   }
 
 }

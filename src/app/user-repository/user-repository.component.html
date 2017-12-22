@@ -1,19 +1,8 @@
 <br>
 <br>
 <!--button type="button" class="btn btn-primary btn-sm">Primary</button-->
-<a href="#" class="badge badge-primary">Primary</a>
-<a href="#" class="badge badge-primary">Primary</a>
-<a href="#" class="badge badge-primary">Primary</a>
-<a href="#" class="badge badge-primary">Primary</a>
-<a href="#" class="badge badge-primary">Primary</a>
-<a href="#" class="badge badge-primary">Primary</a>
-<a href="#" class="badge badge-primary">Primary</a>
-<a href="#" class="badge badge-primary">Primary</a>
-<a href="#" class="badge badge-primary">Primary</a>
-<a href="#" class="badge badge-primary">Primary</a>
-<a href="#" class="badge badge-primary">Primary</a>
-<a href="#" class="badge badge-primary">Primary</a>
-<a href="#" class="badge badge-primary">Primary</a>
-<a href="#" class="badge badge-primary">Primary</a>
-<a href="#" class="badge badge-primary">Primary</a>
-<a href="#" class="badge badge-primary">Primary</a>
+<div *ngIf="repos">
+  <span *ngFor="let repo of repos">
+    <a [href]="repo.html_url" class="badge badge-primary" [title]="repo.html_url">{{repo.name}}</a>
+  </span>
+</div>

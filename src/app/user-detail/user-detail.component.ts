@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { GithubService } from '../github.service';
+import { Profil } from '../profil';
 
 @Component({
   selector: 'app-user-detail',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDetailComponent implements OnInit {
 
-  constructor() { }
+  @Input() profil: Profil;
+  
+  constructor(private githubService: GithubService) { }
 
   ngOnInit() {
   }
+
 
 }
