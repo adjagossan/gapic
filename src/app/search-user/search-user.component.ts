@@ -24,10 +24,11 @@ export class SearchUserComponent implements OnInit {
   }
 
   getProfil(login: string) {
+
+      this.clear();
       
       if(login){
 
-          this.clear();
           this.showLoadingif = true;
           this.githubService.currentLogin = login.trim();
 
