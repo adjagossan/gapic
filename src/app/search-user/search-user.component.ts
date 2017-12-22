@@ -16,6 +16,7 @@ export class SearchUserComponent implements OnInit {
   private profil: Profil;
   private repos: Observable<Repos[]>
   private repoUrl: string;
+  private showLoadingif: boolean;
 
   constructor(private githubService: GithubService) { }
 
@@ -23,15 +24,29 @@ export class SearchUserComponent implements OnInit {
   }
 
   getProfil(login: string) {
+      
+      if(login){
 
-      this.githubService.currentLogin = login;
+          this.clear();
+          this.showLoadingif = true;
+          this.githubService.currentLogin = login.trim();
 
-      this.githubService.currentProfil.subscribe(pf => {
-        this.profil = pf;
-        this.githubService.currentRepoUrl = this.profil["repos_url"];
-        this.repos = this.githubService.currentRepo;
-      });
+          this.githubService.currentProfil.subscribe(pf => {
+            this.profil = pf;
+            this.githubService.currentRepoUrl = this.profil["repos_url"];
+            this.repos = this.githubService.currentRepo;
+            this.showLoadingif = false;
+          },
+          err => {
+            this.clear();
+          });
+      }
+  }
 
+  private clear() {
+    this.profil = null;
+    this.repos = null;
+    this.showLoadingif = false;
   }
 
 }

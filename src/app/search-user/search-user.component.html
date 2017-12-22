@@ -1,11 +1,11 @@
 <div class="row">
   <!--div class="col-lg-6"-->
     <div class="input-group">
-      <input ref-login type="text" class="form-control" placeholder="Enter login" aria-label="Login">
+      <input ref-login (keyup.enter)="getProfil(login.value)" type="text" class="form-control" placeholder="Enter the login of a github account" aria-label="Login">
       <span class="input-group-btn">
         <button class="btn btn-secondary" type="button" on-click="getProfil(login.value)">
-            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            GO
+            <i *ngIf="!profil && showLoadingif" class="fa fa-circle-o-notch fa-spin" style="font-size:12px;color:blue"></i>
+            <i class="fa fa-search" aria-hidden="true" *ngIf="!showLoadingif"></i>
         </button>
       </span>
     </div>
