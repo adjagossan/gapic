@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GithubService } from '../github.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-search-user',

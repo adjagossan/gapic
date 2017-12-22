@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import { Profil } from './profil';
+import { Repos } from './repos';
 import { githubApiBaseUrl } from './util';
 
 @Injectable()
