@@ -8,13 +8,15 @@ import { SearchUserComponent } from './search-user/search-user.component';
 import { UserRepositoryComponent } from './user-repository/user-repository.component';
 
 import { GithubService } from './github.service';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchUserComponent,
-    UserRepositoryComponent
+    UserRepositoryComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
