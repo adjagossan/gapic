@@ -11,35 +11,35 @@
             <!-- Twitter Button -->
 		</div>
 
-		<a [title]="profil.name" href="" class="twPc-avatarLink">
+		<a [title]="profil.name" [href]="" class="twPc-avatarLink">
 			<img [alt]="profil.name" [src]="profil.avatar_url" class="twPc-avatarImg">
 		</a>
 
 		<div class="twPc-divUser">
 			<div class="twPc-divName">
-				<a [href]="profil.html_url">{{ profil.name }}</a>
+				<a [href]="profil.html_url" target="_blank">{{ profil.name }}</a>
 			</div>
 			<span>
-				<a [href]="profil.html_url">@<span>{{ profil.login }}</span></a>
+				<a [href]="profil.html_url" target="_blank">@<span>{{ profil.login }}</span></a>
 			</span>
 		</div>
 
 		<div class="twPc-divStats">
 			<ul class="twPc-Arrange">
 				<li class="twPc-ArrangeSizeFit">
-					<a href="" title="{{ profil.public_repos }} Repos">
+					<a [href]="" title="{{ profil.public_repos }} Repos">
 						<span class="twPc-StatLabel twPc-block">Repos</span>
 						<span class="twPc-StatValue">{{ profil.public_repos }}</span>
 					</a>
 				</li>
 				<li class="twPc-ArrangeSizeFit">
-					<a href="" title="{{ profil.following }} Following">
+					<a [href]="" title="{{ profil.following }} Following">
 						<span class="twPc-StatLabel twPc-block">Following</span>
 						<span class="twPc-StatValue">{{ profil.following }}</span>
 					</a>
 				</li>
 				<li class="twPc-ArrangeSizeFit">
-					<a href="" title="{{ profil.followers }} Followers">
+					<a [href]="" title="{{ profil.followers }} Followers">
 						<span class="twPc-StatLabel twPc-block">Followers</span>
 						<span class="twPc-StatValue">{{ profil.followers }}</span>
 					</a>
